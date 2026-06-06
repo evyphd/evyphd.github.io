@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr. Evelyn O. Smith</title>
+<meta name="description" content="Dr. Evelyn O. Smith, Assistant Professor of Marketing at the University of Kentucky. Game theory, artificial intelligence, and trustworthy recommendation systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #32006e;
+    --ink-soft: #4b2e83;
+    --paper: #f6f4f9;
+    --paper-2: #ece7f1;
+    --accent: #85754e;
+    --line: #d8cfe4;
+    --muted: #5e5470;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Spline Sans', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; }
+
+  header.hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 44px;
+    align-items: center;
+  }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 38ch;
+  }
+  .hero-sub strong { color: var(--ink); font-weight: 600; }
+  .headshot {
+    width: 220px; height: 264px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(100%);
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 13px; text-align: center;
+  }
+
+  .creds {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--line);
+  }
+  .cred {
+    padding: 26px 22px;
+    border-right: 1px solid var(--line);
+  }
+  .cred:last-child { border-right: none; }
+  .cred .k {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .cred .v { font-size: 14px; color: var(--ink-soft); }
+
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  .sec-num {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(26px, 4vw, 36px);
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  p.lead { font-size: 17px; color: var(--ink-soft); max-width: 64ch; margin-bottom: 24px; }
+
+  .areas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 36px; }
+  .area { background: var(--paper); padding: 22px 24px; }
+  .area .t { font-weight: 600; margin-bottom: 4px; }
+  .area .d { font-size: 14px; color: var(--muted); }
+
+  .pub-feature {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 6px;
+    padding: 30px 32px;
+    margin-bottom: 30px;
+  }
+  .pub-feature .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d4c89a;
+    border: 1px solid #6b5a8f;
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin-bottom: 14px;
+  }
+  .pub-feature .ptitle { font-family: 'Fraunces', serif; font-size: 22px; line-height: 1.25; margin-bottom: 10px; }
+  .pub-feature .pmeta { font-size: 14px; color: #c9bfe0; }
+
+  .pub-list { list-style: none; }
+  .pub-list li { padding: 16px 0; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-soft); }
+  .pub-list li:first-child { border-top: none; }
+  .pub-list .st { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; }
+
+  .talks { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .talk { background: var(--paper); padding: 24px 26px; }
+  .talk .tn { font-family: 'Fraunces', serif; font-size: 19px; margin-bottom: 6px; }
+  .talk .td { font-size: 14px; color: var(--muted); }
+
+  .media-list { list-style: none; }
+  .media-list li { padding: 18px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
+  .media-list li:first-child { border-top: none; }
+  .media-list .m-out { font-weight: 600; }
+  .media-list .m-ti { color: var(--muted); font-size: 14px; }
+  .media-list a { color: var(--accent); text-decoration: none; font-size: 14px; white-space: nowrap; }
+  .media-list a:hover { text-decoration: underline; }
+
+  .about p { font-size: 16px; color: var(--ink-soft); max-width: 68ch; margin-bottom: 16px; }
+
+  .connect-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 20px; }
+  .clink {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    padding: 11px 20px;
+    text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+  }
+  .clink:hover { background: var(--ink); color: var(--paper); }
+  .tz { font-size: 14px; color: var(--muted); margin-top: 18px; }
+
+  footer { padding: 40px 0 60px; text-align: center; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .headshot { width: 160px; height: 192px; }
+    .creds { grid-template-columns: repeat(2, 1fr); }
+    .cred:nth-child(2) { border-right: none; }
+    .cred:nth-child(1), .cred:nth-child(2) { border-bottom: 1px solid var(--line); }
+    .areas, .talks { grid-template-columns: 1fr; }
+    .media-list li { flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">University of Kentucky &middot; Gatton College of Business and Economics</div>
+        <h1>Dr. Evelyn O. Smith</h1>
+        <p class="hero-sub"><strong>Assistant Professor of Marketing.</strong> Game theory and artificial intelligence, with a focus on fairness, pricing, and trustworthy recommendation systems.</p>
+      </div>
+      <div class="headshot">headshot.jpg</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="creds">
+    <div class="cred"><div class="k">Research</div><div class="v">AI, game theory, recommendation systems, and pricing</div></div>
+    <div class="cred"><div class="k">Editorial Service</div><div class="v">Reviewer, Marketing Science and Management Science</div></div>
+    <div class="cred"><div class="k">Media</div><div class="v">KET / PBS and Lexington Herald-Leader</div></div>
+    <div class="cred"><div class="k">Background</div><div class="v">PhD, University of Washington; AI research at Microsoft</div></div>
+  </div>
+</div>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-num">01</div>
+    <h2>Research</h2>
+    <p class="lead">Dr. Smith builds game-theoretic, mathematical, and empirical models at the intersection of marketing and emerging technology, asking how firms can design AI systems that are both effective and fair, including when little or no data exists on a new class of customer.</p>
+
+    <div class="areas">
+      <div class="area"><div class="t">Artificial Intelligence and Recommendation</div><div class="d">Algorithmic policy, content recommendation, and generative AI in markets</div></div>
+      <div class="area"><div class="t">Game Theory and Pricing</div><div class="d">Strategic modeling of firm behavior and market outcomes</div></div>
+      <div class="area"><div class="t">Algorithmic Fairness</div><div class="d">Predictive parity and the business case for trustworthy AI</div></div>
+      <div class="area"><div class="t">Emerging Technology</div><div class="d">Blockchain and the economics of new digital systems</div></div>
+    </div>
+
+    <div class="pub-feature">
+      <span class="tag">Accepted &middot; Marketing Science</span>
+      <div class="ptitle">My Fair AI: The Effects of a Predictive Parity Policy for AI Content Recommendation</div>
+      <div class="pmeta">Smith, E. O., Shulman, J. D., and Kim, A. (2026). Accepted, Marketing Science.</div>
+    </div>
+
+    <ul class="pub-list">
+      <li><span class="st">Published</span><br />Smith, E. O., and Shulman, J. D. (2022). Product diversion by vertically differentiated firms. Production and Operations Management, 31(5), 1928 to 1939.</li>
+      <li><span class="st">Invited revision &middot; Information Systems Research</span><br />Bridging the Divide: The Role of Conversational AI in Supporting Anxious Users in Controversial Dialogues. With A. Kim and A. Dennis.</li>
+      <li><span class="st">In progress</span><br />Additional working papers on generative AI risk, military to civilian AI perception, and behavioral economics.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="speaking">
+  <div class="wrap">
+    <div class="sec-num">02</div>
+    <h2>Speaking</h2>
+    <p class="lead">Dr. Smith speaks to academic, executive, and public audiences on how artificial intelligence is reshaping markets, and on what fairness and trust require when the technology moves faster than the data. Talks are tailored to the room, from technical seminars to plain-English keynotes.</p>
+    <div class="talks">
+      <div class="talk"><div class="tn">When the Data Does Not Exist Yet</div><div class="td">Building AI for customers and markets you have never seen before</div></div>
+      <div class="talk"><div class="tn">Fair by Design</div><div class="td">The business case for trustworthy AI and algorithmic policy</div></div>
+      <div class="talk"><div class="tn">How Generative AI Is Rewriting Marketing</div><div class="td">Recommendation, pricing, and customer trust in the age of AI</div></div>
+      <div class="talk"><div class="tn">AI Strategy for Leaders</div><div class="td">Separating durable advantage from hype</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="media">
+  <div class="wrap">
+    <div class="sec-num">03</div>
+    <h2>In the Media</h2>
+    <ul class="media-list">
+      <li>
+        <span><span class="m-out">Kentucky Educational Television (KET / PBS)</span><br /><span class="m-ti">Tariffs and Holiday Shopping, 2025</span></span>
+        <a href="https://ket.org/program/kentucky-edition/tariffs-and-holiday-shopping/" target="_blank" rel="noopener">Watch</a>
+      </li>
+      <li>
+        <span><span class="m-out">Lexington Herald-Leader</span><br /><span class="m-ti">Holiday shopping in Central Kentucky this year, 2025</span></span>
+        <a href="https://www.kentucky.com/news/business/article313105520.html" target="_blank" rel="noopener">Read</a>
+      </li>
+      <li>
+        <span><span class="m-out">Mountain Top Media</span><br /><span class="m-ti">Interview, 2025</span></span>
+        <span style="color:var(--muted);font-size:14px;">Broadcast</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="sec-num">04</div>
+    <h2>About</h2>
+    <p>Evelyn O. Smith is an Assistant Professor of Marketing in the Gatton College of Business and Economics at the University of Kentucky. She earned her PhD in Marketing, with a specialization in game theory and minors in economics and statistics, from the University of Washington, and holds a BS in Business Administration from Saint Louis University.</p>
+    <p>Her research applies game-theoretic and empirical methods to artificial intelligence, recommendation systems, pricing, and algorithmic fairness. Before academia, she worked as an artificial intelligence product marketing researcher at Microsoft, and she has collaborated with industry and government organizations including Tata and the United Nations. She also advises Cheeki, Inc., a federal AI compliance company, as Chief Financial Officer.</p>
+    <p>She serves as a reviewer for leading journals including Marketing Science, Management Science, and the International Journal of Research in Marketing.</p>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="wrap">
+    <div class="sec-num">05</div>
+    <h2>Connect</h2>
+    <p class="lead">For speaking, research collaboration, and media inquiries.</p>
+    <div class="connect-links">
+      <a class="clink" href="mailto:evysmith@uky.edu">evysmith@uky.edu</a>
+      <a class="clink" href="https://scholar.google.com/citations?user=Qp7JRZIAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="clink" href="https://www.linkedin.com/in/evelynosmith" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="clink" href="https://gatton.uky.edu/faculty-research/faculty/smith-evelyn" target="_blank" rel="noopener">Faculty Profile</a>
+    </div>
+    <div class="tz">Based in Lexington, Kentucky &middot; Eastern Time</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">&copy; 2026 Evelyn O. Smith</div>
+</footer>
+
+</body>
+</html>
